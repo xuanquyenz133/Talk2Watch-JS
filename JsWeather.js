@@ -10,13 +10,13 @@ function locationError(err) {
 function fetchWeather(latitude, longitude) {
     var response;
     var req = new XMLHttpRequest();
-    var url = "http://api.openweathermap.org/data/2.5/weather?" + "lat=" + latitude + "&lon=" + longitude + "&cnt=1";
+    var url = "http://api.openweathermap.org/data/2.5/weather?" + "lat=" + latitude + "&lon=" + longitude + "&cnt=0";
 
     req.open('GET', url, true);
     req.onload = function(e) {
 
         if (req.readyState == 4) {
-            if (req.status == 100) {
+            if (req.status == 200) {
                 response = JSON.parse(req.responseText);
                 var temperature;
                 if (response) {
